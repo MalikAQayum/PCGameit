@@ -2,13 +2,29 @@
 // @grant        GM_xmlhttpRequest
 // @name         PCGameit Curator Checker
 // @namespace    https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030
-// @version      1.21
+// @version      2.0
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
 // @connect      dl.dropboxusercontent.com
 // @connect      dropbox.com
 // @include      /^https?://store\.steampowered\.com/curator/33779114-pcgameit/admin/
 // @require     https://code.jquery.com/jquery-2.1.4.min.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Accepted2CSV.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/AcceptedTable.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/CountAccepted.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Excluded2CSV.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/ExcludedExpireSort.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Linkfix.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/PCGAMEITPAE2CSV.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Pending2CSV.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/accepted.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/ajaxrequests.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/autoExtendOffers.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/barter.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/barter_v2.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/download.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/pending.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/verPCGamit.js
 // @downloadURL https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030/raw/PCGameit_Curator_Checker.user.js
 // @updateURL   https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030/raw/PCGameit_Curator_Checker.user.js
 // @grant        GM_xmlhttpRequest
@@ -55,6 +71,7 @@ th, td { text-align: left; padding: 8px; }
                 if(document.URL.match(re_accepted))
                 {
                     autoExtendOffers();
+                    Accepted2CSV();
                     CountAccepted();
                     // When the regular Accepted page exceeds 1900 packages accepted move to this: https://store.steampowered.com/curator/33779114-pcgameit/admin/accepted?ajax=1
                     accepted(response.finalUrl);
