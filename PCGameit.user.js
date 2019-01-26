@@ -25,8 +25,8 @@
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/download.js
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/pending.js
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/verPCGamit.js
-// @downloadURL https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030/raw/PCGameit_Curator_Checker.user.js
-// @updateURL   https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030/raw/PCGameit_Curator_Checker.user.js
+// @downloadURL https://github.com/MalikAQayum/PCGameit/raw/master/PCGameit.user.js
+// @updateURL   https://github.com/MalikAQayum/PCGameit/raw/master/PCGameit.user.js
 // @grant        GM_xmlhttpRequest
 // @grant        GM_addStyle
 // @run-at      document-idle
