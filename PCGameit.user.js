@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCGameit Curator Checker
 // @namespace    https://github.com/MalikAQayum/PCGameit
-// @version      2.1
+// @version      2.2
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
 // @connect      dl.dropboxusercontent.com
@@ -54,10 +54,10 @@ var re_PAE = new RegExp(/admin\/(accepted*|pending*|excluded*)/);
 if(document.URL.match(re_PAE))
 {
     GM_addStyle(`
-		table { border-collapse: collapse; width: 100%; }
-		th, td { text-align: left; padding: 8px; }
-		.expires_soon { color: #ff6666; font-size: 16px; font-weight: bolder;}
-	`);
+	table { border-collapse: collapse; width: 100%; }
+	th, td { text-align: left; padding: 8px; }
+	.expires_soon { color: #ff6666; font-size: 16px; font-weight: bolder;}
+`);
 
     var baseURL = "https://www.dropbox.com/s/o592uy2nceq9nh9/db.json?raw=1";
     (function (dbURL) {
