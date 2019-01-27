@@ -44,7 +44,7 @@ if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
     setTimeout(function(){
-        ´//download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLACSV"))
+        //download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLACSV"))
         //download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
 
     }, 10000);

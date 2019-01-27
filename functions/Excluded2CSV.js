@@ -20,7 +20,7 @@ function Excluded2CSV(){
             .replace(/",one,"/g, '",1,"')
             .replace(/. "/g, '"');
         E2CSV += ExcludedAppidArr[i]+","+excludedString + "<br>";
-        E2CSV2 += ExcludedAppidArr[i]+","+excludedString + "<br>";
+        PE2CSV += ExcludedAppidArr[i]+","+excludedString + "<br>";
         localStorage.setItem("PCGameitECSV", E2CSV);
 
         localStorage.setItem("PCGameitDLPECSV", PE2CSV.replace(/<br>/g, "\r\n"));
