@@ -44,15 +44,16 @@ if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
     setTimeout(function(){
-		localStorage.getItem("PCGameitADate"); 
 		var yesterday = new Date();
 		yesterday.setDate(yesterday.getDate() - 1);
 		alert(localStorage.getItem("PCGameitADate") +'\n' + yesterday);
+		/*
 		if(){
 			
 		}else{
 			
 		}
+		*/
 		
         //download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
         //download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
