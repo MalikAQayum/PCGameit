@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCGameit Curator Checker
 // @namespace    https://github.com/MalikAQayum/PCGameit
-// @version      2.2
+// @version      2.3
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
 // @connect      dl.dropboxusercontent.com
@@ -44,26 +44,19 @@ if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
     var checkDate = new Date();
-    checkDate.setHours(checkDate.getHours() - 8);
+    checkDate.setHours(checkDate.getHours() - 6);
 
-    if(checkDate > new Date(localStorage.getItem("PCGameitADate"))){
+    if(checkDate < new Date(localStorage.getItem("PCGameitADate"))){
         download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
     }else{
-        //don't do anything
+        $('.titleframe.PCGameitDates').append('<br><h4>Accepted needs to be Updated!</h4>');
     }
 
-    if(checkDate > new Date(localStorage.getItem("PCGameitPDate")) && checkDate > new Date(localStorage.getItem("PCGameitEDate"))){
+    if(checkDate < new Date(localStorage.getItem("PCGameitPDate")) && checkDate < new Date(localStorage.getItem("PCGameitEDate"))){
         download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
     }else{
-        //don't do anything
+        $('.titleframe.PCGameitDates').append('<br><h4>Pending/Excluded needs to be Updated!</h4>');
     }
-	
-	/*
-    setTimeout(function(){
-        //download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
-        //download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
-    }, 10000);
-	*/
 }
 
 
