@@ -43,24 +43,29 @@ var re_overview = new RegExp(/overview\/pcgameit/);
 if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
-	var yesterday = new Date();
-		yesterday.setDate(yesterday.getDate() - 1);
-		alert(localStorage.getItem("PCGameitADate") +'\n' + yesterday);
+    var checkDate = new Date();
+    checkDate.setHours(checkDate.getHours() - 8);
+
+    if(checkDate > new Date(localStorage.getItem("PCGameitADate"))){
+        download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
+    }else{
+        //don't do anything
+    }
+
+    if(checkDate > new Date(localStorage.getItem("PCGameitPDate")) && checkDate > new Date(localStorage.getItem("PCGameitEDate"))){
+        download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
+    }else{
+        //don't do anything
+    }
+	
+	/*
     setTimeout(function(){
-		
-		/*
-		if(){
-			
-		}else{
-			
-		}
-		*/
-		
         //download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
         //download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
-
     }, 10000);
+	*/
 }
+
 
 var re_PAE = new RegExp(/admin\/(accepted*|pending*|excluded*)/);
 if(document.URL.match(re_PAE))
