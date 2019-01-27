@@ -53,7 +53,12 @@ if(document.URL.match(re_overview))
     }
 
     if(checkDate < new Date(localStorage.getItem("PCGameitPDate")) && checkDate < new Date(localStorage.getItem("PCGameitEDate"))){
-        download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
+        if(new Date(localStorage.getItem("PCGameitPDate")) < new Date(localStorage.getItem("PCGameitEDate"))){
+            $('.titleframe.PCGameitDates').append('<br><h4>Pending page needs to be pressed before Excluded page! try again!</h4>');           
+        }else{
+            download("PendingCuratorCopies.csv",localStorage.getItem("PCGameitDLPECSV"))
+        }
+
     }else{
         $('.titleframe.PCGameitDates').append('<br><h4>Pending/Excluded needs to be Updated!</h4>');
     }
