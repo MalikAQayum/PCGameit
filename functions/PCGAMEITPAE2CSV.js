@@ -4,7 +4,7 @@ function PCGAMEITPAE2CSV(){
     $(".admin_nav").hide();
 
     $( ".admin_content" ).append( "<div class=\"titleframe PCGameitDates\"></div><br>" );
-    $('.titleframe.PCGameitDates').html("ACCEPTED UPDATED ON => "+localStorage.getItem("PCGameitADate") + ' ' + '<button class="btn_green_white_innerfade btn_border_2px btn_medium" onclick=\'download("AcceptedCuratorCopies.csv\','+ localStorage.getItem("PCGameitDLA2CSV")+'>Download</button>'+"<br>" +
+    $('.titleframe.PCGameitDates').html("ACCEPTED UPDATED ON => "+localStorage.getItem("PCGameitADate") + ' ' + '<button class="btn_green_white_innerfade btn_border_2px btn_medium" onclick=\'download("AcceptedCuratorCopies.csv\',\''+ localStorage.getItem("PCGameitDLA2CSV")+'\'>Download</button>'+"<br>" +
 	"PENDING UPDATED ON &nbsp;&nbsp;=> "+localStorage.getItem("PCGameitPDate") + ' ' + '<button class="btn_green_white_innerfade btn_border_2px btn_medium" onclick="download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))">Download</button>'+"<br>" +
 	"EXCLUDED UPDATED ON => "+localStorage.getItem("PCGameitEDate")+"<br>" );
 
