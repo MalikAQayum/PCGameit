@@ -1,6 +1,6 @@
 // ==UserScript==
 // @name         PCGameit Curator Checker
-// @namespace    https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030
+// @namespace    https://github.com/MalikAQayum/PCGameit
 // @version      2.0
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
