@@ -43,10 +43,11 @@ var re_overview = new RegExp(/overview\/pcgameit/);
 if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
-    setTimeout(function(){
-		var yesterday = new Date();
+	var yesterday = new Date();
 		yesterday.setDate(yesterday.getDate() - 1);
 		alert(localStorage.getItem("PCGameitADate") +'\n' + yesterday);
+    setTimeout(function(){
+		
 		/*
 		if(){
 			
