@@ -7,9 +7,11 @@ function PCGAMEITPAE2CSV(){
     $('.titleframe.PCGameitDates').html("ACCEPTED UPDATED ON => "+localStorage.getItem("PCGameitADate")+"<br>" + "PENDING UPDATED ON &nbsp;&nbsp;=> "+localStorage.getItem("PCGameitPDate")+"<br>" + "EXCLUDED UPDATED ON => "+localStorage.getItem("PCGameitEDate")+"<br>" );
 
     $( ".admin_content" ).append( "<div class=\"titleframe PCGameitPCSV\"></div><br>" );
-    $('.titleframe.PCGameitPCSV').html(localStorage.getItem("PCGameitPCSV"));
+    $('.titleframe.PCGameitPCSV').html(localStorage.getItem("PCGameitPCSV") + ' ' + '<button class="btn_green_white_innerfade btn_border_2px btn_medium" onclick="download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))">Download</button>');
     $( ".admin_content" ).append( "<div class=\"titleframe PCGameitECSV\"></div><br>" );
     $('.titleframe.PCGameitECSV').html(localStorage.getItem("PCGameitECSV"));
     $( ".admin_content" ).append( "<div class=\"titleframe PCGameitACSV\"></div><br>" );
-    $('.titleframe.PCGameitACSV').html(localStorage.getItem("PCGameitACSV"));
+    $('.titleframe.PCGameitACSV').html(localStorage.getItem("PCGameitACSV") + ' ' + '<button class="btn_green_white_innerfade btn_border_2px btn_medium" onclick="download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))">Download</button>');
 }
+
+
