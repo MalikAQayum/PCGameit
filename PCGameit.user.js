@@ -1,5 +1,4 @@
 // ==UserScript==
-// @grant        GM_xmlhttpRequest
 // @name         PCGameit Curator Checker
 // @namespace    https://gist.github.com/MalikAQayum/27ff1bdf5b97ed4c5ed258183e24a030
 // @version      2.0
