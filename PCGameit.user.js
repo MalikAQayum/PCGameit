@@ -44,7 +44,7 @@ if(document.URL.match(re_overview))
 {
     PCGAMEITPAE2CSV();
     var checkDate = new Date();
-    checkDate.setHours(checkDate.getHours() - 6);
+    checkDate.setHours(checkDate.getHours() - 1);
 
     if(checkDate < new Date(localStorage.getItem("PCGameitADate"))){
         download("AcceptedCuratorCopies.csv",localStorage.getItem("PCGameitDLA2CSV"))
