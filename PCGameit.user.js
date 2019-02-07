@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCGameit Curator Checker
 // @namespace    https://github.com/MalikAQayum/PCGameit
-// @version      2.3
+// @version      2.4
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
 // @connect      dl.dropboxusercontent.com
@@ -24,6 +24,7 @@
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Pending2CSV.js
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/Excluded2CSV.js
 // @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/download.js
+// @require     https://github.com/MalikAQayum/PCGameit/raw/master/functions/CountCopies.js
 // @downloadURL https://github.com/MalikAQayum/PCGameit/raw/master/PCGameit.user.js
 // @updateURL   https://github.com/MalikAQayum/PCGameit/raw/master/PCGameit.user.js
 // @grant        GM_xmlhttpRequest
@@ -36,7 +37,7 @@ if(document.URL.match(re_admin))
 {
     Linkfix();
     verPCGamit();
-    ajaxrequests();
+    //ajaxrequests();
 }
 
 var re_overview = new RegExp(/overview\/pcgameit/);
@@ -67,9 +68,9 @@ var re_PAE = new RegExp(/admin\/(accepted*|pending*|excluded*)/);
 if(document.URL.match(re_PAE))
 {
     GM_addStyle(`
-	table { border-collapse: collapse; width: 100%; }
-	th, td { text-align: left; padding: 8px; }
-	.expires_soon { color: #ff6666; font-size: 16px; font-weight: bolder;}
+table { border-collapse: collapse; width: 100%; }
+th, td { text-align: left; padding: 8px; }
+.expires_soon { color: #ff6666; font-size: 16px; font-weight: bolder;}
 `);
 
     var baseURL = "https://www.dropbox.com/s/o592uy2nceq9nh9/db.json?raw=1";
@@ -82,21 +83,22 @@ if(document.URL.match(re_PAE))
                 var re_accepted = new RegExp(/accepted/);
                 if(document.URL.match(re_accepted))
                 {
+                    // When the regular Accepted page exceeds 1900 packages accepted move to this: https://store.steampowered.com/curator/33779114-pcgameit/admin/accepted?ajax=1
+                    accepted(response.finalUrl);
                     autoExtendOffers();
                     Accepted2CSV();
                     CountAccepted();
-                    // When the regular Accepted page exceeds 1900 packages accepted move to this: https://store.steampowered.com/curator/33779114-pcgameit/admin/accepted?ajax=1
-                    accepted(response.finalUrl);
                 }
 
                 var re_pending = new RegExp(/pending/);
                 if(document.URL.match(re_pending))
                 {
+                    pending(response.finalUrl);
                     autoExtendOffers();
                     Pending2CSV();
                     //barter();
                     //barter_v2();
-                    pending(response.finalUrl);
+                    CheckCopiesP();
                 }
 
                 var re_excluded = new RegExp(/excluded/);
@@ -105,6 +107,7 @@ if(document.URL.match(re_PAE))
                     autoExtendOffers();
                     ExcludedExpireSort();
                     Excluded2CSV();
+                    CheckCopiesP()
                 }
             }
         } );
