@@ -18,7 +18,7 @@ function CheckCopiesP(){
                 p_str_copies[i] = parseInt(p_str_copies[i], 10);
             }
 
-            let p_count = eval(p_str_copies.join('+')) + p_str_copy.length + 1;
+            let p_count = eval(p_str_copies.join('+')) + p_str_copy.length;
             console.log("Pending Count = " +p_count);
             CheckCopiesE(p_count);
         }
@@ -45,7 +45,7 @@ function CheckCopiesE(p_count){
             for(var i=0; i<e_str_copies.length;i++) {
                 e_str_copies[i] = parseInt(e_str_copies[i], 10);
             }
-            let e_count = eval(e_str_copies.join('+')) + e_str_copy.length + 1;
+            let e_count = eval(e_str_copies.join('+')) + e_str_copy.length;
             console.log("Excluded Count = " +e_count);
 
             pe_count = parseInt(p_count) + parseInt(e_count);
