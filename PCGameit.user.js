@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         PCGameit Curator Checker
 // @namespace    https://github.com/MalikAQayum/PCGameit
-// @version      2.4
+// @version      2.5
 // @description  Does things on the Curator admin page (Pending/Accepted/Excluded)
 // @author       MalikQayum
 // @connect      dl.dropboxusercontent.com
@@ -105,7 +105,7 @@ th, td { text-align: left; padding: 8px; }
                 if(document.URL.match(re_excluded))
                 {
                     autoExtendOffers();
-                    ExcludedExpireSort();
+                    //ExcludedExpireSort();
                     Excluded2CSV();
                     CheckCopiesP()
                 }
